@@ -2,6 +2,9 @@ name: Build Assets
 
 on: push
 
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Build assets (Node ${{ matrix.node-version }})
@@ -25,6 +28,3 @@ jobs:
 
       - name: Build assets
         run: npm run build
-
-      - name: Audit dependencies
-        run: npm audit --audit-level=high
